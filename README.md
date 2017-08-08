@@ -33,3 +33,6 @@ Analyses z-value polygons from Identify Geo-Depressions tool. Produces polygon s
 1. Calculate the location of deepest point using ArcGIS Spatial Analysis Zonal Statistics and Raster Calculator
 1. Smooth Polygons for better aesthetics using cellsize*3 PAEK smoothing algorithm
 1. Calculate Area, Perimeter, Major Axis, Minor Axis, Eccentricity, Azimuth, Thinness Ratio, and Diameter-Depth Ratio for each polygon
+
+![belfast bay](https://github.com/GISJMR/ArcGIS-GeoDepressions-Tool/blob/master/imgs/belfast_bay.png)
+*GeoDepression centroids created from 40m resolution multibeam bathymetry data (GMRT, 2017)*
