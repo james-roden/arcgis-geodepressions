@@ -35,4 +35,4 @@ Analyses z-value polygons from Identify Geo-Depressions tool. Produces polygon s
 1. Calculate Area, Perimeter, Major Axis, Minor Axis, Eccentricity, Azimuth, Thinness Ratio, and Diameter-Depth Ratio for each polygon
 
 ![belfast bay](https://github.com/GISJMR/ArcGIS-GeoDepressions-Tool/blob/master/imgs/belfast_bay.png)
-*GeoDepression centroids created from 40m resolution multibeam bathymetry data (GMRT, 2017)*
+*GeoDepression centroids created from 40m resolution multibeam bathymetry data (Bathymetry from GMRT)*
