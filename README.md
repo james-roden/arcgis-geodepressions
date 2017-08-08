@@ -15,7 +15,7 @@ This toolbox should facilitate in helping detect potential pockmarks at varying 
 Identifies depressions in a bathymetric raster using the specified z-value (difference between sink and pour point). The z-value parameter is a threshold for what sinks should be filled in the raster. A sink is a cell in the raster that has no outward flow direction (i.e. a depression). If the sink depth to pour point height is less than the specified z-value, the sink will be identified; otherwise it will be ignored. Ideally this tool will be run several times with differing z-values to capture all possible depressions. For e.g. depressions that are ~5m deep would be ignored if they were located inside a depression that is ~20m deep if the z-value was >20m. A suggested work-flow is to loop over several z-values (e.g. [3, 5, 7, 9, 12, 15]) and using 'Select by Location' in ArcMap remove the larger polygons if they contain polygons from a smaller z-value. At this stage spurious polygons from edge data and/or noise can also be removed. Once happy with the depressions polygon it can be used in the Analyse Tool to get the various statistics that will support any interpretation.
 
 ![z-value example](https://github.com/GISJMR/ArcGIS-GeoDepressions-Tool/blob/master/imgs/z-value.png)
-*Results from Identify GeoDepressions tool (left); Depression polygons, deepest point, and centroid with azimuth symbology output from Analyse GeoDepressions tool (right)*
+*Illustration showing how the z-value affects the geo-depression detection. Depressions where the height between pour point and sink are larger than the specified z-value are ignored.*
 
 ### Algorithm Outline:
 
