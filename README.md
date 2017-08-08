@@ -26,6 +26,7 @@ Identifies depressions in a bathymetric raster using the specified z-value (diff
 Analyses z-value polygons from Identify Geo-Depressions tool. Produces polygon set with the following analytic statistics: area, perimeter, major axis, minor axis, eccentricity, azimuth, thinness ratio, diameter-depth ratio, depression depth, and low-level morpholgical characteristics. The tool outputs 3 feature classes: depression polygons, depression polygon centroids, and depression polygon deepest point.
 
 ![z-value to output](https://github.com/GISJMR/ArcGIS-GeoDepressions-Tool/blob/master/imgs/example.png)
+Results from Identify GeoDepressions tool (left); Depression polygons, deepest point, and centroid with azimuth symbology output from Analyse GeoDepressions tool (right)
 
 ### Algorithm Outline:
 
