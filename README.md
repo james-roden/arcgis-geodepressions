@@ -2,7 +2,7 @@
 
 An ArcGIS toolbox to semi-automatically identify and analyse geo-depressions in a bathymetric grid. These tools can be used to aid the discovery of pockmarks on the sea bed, and ultimately the location of working hydrocarbon systems.
 
-[DOWNLOAD](ArcGIS-GeoDepressions-Tool/ArcGIS-GeoDepressions.zip)
+[DOWNLOAD](https://github.com/GISJMR/ArcGIS-GeoDepressions-Tool/raw/master/ArcGIS-GeoDepressions.zip)
 
 ## Pockmarks
 
