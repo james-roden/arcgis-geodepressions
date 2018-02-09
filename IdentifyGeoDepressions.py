@@ -154,8 +154,6 @@ finally:
     arcpy.CheckInExtension("spatial")
     arcpy.AddMessage("Spatial analysis extension checked in.")
 
-    delete_list = [depression_polygons, depression]
-
     # Delete in_memory
     arcpy.Delete_management('in_memory')
     arcpy.AddMessage("in_memory intermediate files deleted.")
