@@ -101,11 +101,17 @@ try:
     output = arcpy.GetParameterAsText(2)
 
     # Checks bathy is negative values only
-    bathy_dataset = arcpy.Raster(bathy.dataSource)
-    arcpy.CalculateStatistics_management(bathy_dataset)
-    arcpy.AddMessage("Bathy statistics calculated.")
-    res = arcpy.GetRasterProperties_management(bathy_dataset, "MAXIMUM")
-    if float(res.getOutput(0)) > 0:
+    # Create raster object if raster layer
+    if type(bathy) is arcpy.Raster:
+        maximum_value = bathy.maximum
+    else:
+        bathy_dataset = arcpy.Raster(bathy.dataSource)
+        arcpy.CalculateStatistics_management(bathy_dataset)
+        arcpy.AddMessage("Bathy statistics calculated.")
+        res = arcpy.GetRasterProperties_management(bathy_dataset, "MAXIMUM")
+        maximum_value = res.getOutput(0)
+
+    if float(maximum_value) > 0:
         raise NotNegative
 
     # Check out Spatial Analyst extension if available
