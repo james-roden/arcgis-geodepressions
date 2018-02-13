@@ -87,7 +87,7 @@ try:
     # Remove polygons that are too small and too big
     describe = arcpy.Describe(bathy_dataset)
     cell_size = describe.meanCellWidth
-    min_area = (cell_size * 2) ** 2
+    min_area = (cell_size * 3) ** 2
     arcpy.AddField_management(depression_polygons, "AREA_M", "FLOAT")
     arcpy.CalculateField_management(depression_polygons, "AREA_M", "!SHAPE.area@SQUAREMETERS!", "PYTHON")
     sql_exp = "AREA_M >= {} AND AREA_M <= {}".format(min_area, max_area)
