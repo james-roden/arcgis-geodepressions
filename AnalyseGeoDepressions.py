@@ -96,20 +96,19 @@ try:
     arcpy.env.overwriteOutput = True
 
     # ArcGIS tool parameters
-    bathy = arcpy.GetParameter(0)
+    raster_layer = arcpy.GetParameterAsText(0)
     depression_polygons = arcpy.GetParameter(1)
     output = arcpy.GetParameterAsText(2)
 
-    # Checks bathy is negative values only
-    # Create raster object if raster layer
-    if type(bathy) is arcpy.Raster:
-        maximum_value = bathy.maximum
-    else:
-        bathy_dataset = arcpy.Raster(bathy.dataSource)
-        arcpy.CalculateStatistics_management(bathy_dataset)
-        arcpy.AddMessage("Bathy statistics calculated.")
-        res = arcpy.GetRasterProperties_management(bathy_dataset, "MAXIMUM")
-        maximum_value = res.getOutput(0)
+    # Check if bathy is negative values only
+    # Create raster object from layer (or full path data set)
+    describe = arcpy.Describe(raster_layer)
+    raster_source = os.path.join(describe.path, os.path.basename(raster_layer))
+    bathy_dataset = arcpy.Raster(raster_source)
+    maximum_value = bathy_dataset.maximum
+    arcpy.AddMessage("Bathy statistics calculated.")
+    if float(maximum_value) > 0:
+        raise NotNegative
 
     if float(maximum_value) > 0:
         raise NotNegative
@@ -180,7 +179,7 @@ try:
             row[7] = azimuth(azimuth_coords)
             row[8] = thinness_ratio(row[2], row[3])
             average_diameter = (row[4] + row[5]) / 2
-            row[10] = diameter_depth_ratio(average_diameter,row[11])
+            row[10] = diameter_depth_ratio(average_diameter, row[11])
             row[9] = shape_descriptor(row[8], row[10])
             cursor.updateRow(row)
             dep_id += 1
@@ -211,7 +210,7 @@ try:
     # ---------------
 
     # Create depression polygon centre point
-    centroid_point = arcpy.FeatureToPoint_management(depression_polygons, None, "CENTROID")
+    centroid_point = arcpy.FeatureToPoint_management(depression_polygons, None, "INSIDE")
     arcpy.AddMessage("Centroid point created.")
 
     # Path variables
