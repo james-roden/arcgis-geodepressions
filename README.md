@@ -42,3 +42,29 @@ Analyses z-value polygons from Identify Geo-Depressions tool. Produces polygon s
 
 ![belfast bay](https://github.com/GISJMR/ArcGIS-GeoDepressions-Tool/blob/master/imgs/belfast_bay.png)
 *GeoDepression centroids created from 40m resolution multibeam bathymetry data (Bathymetry from GMRT)*
+
+### Understanding the Output
+
+AREA_M (Area in Metres), PERIMETER (Perimeter):
+Area and perimeter of the depression polygon.
+
+MAJ_AXIS (Major Axis), MIN_AXIS (Minor Axis), ECC (Eccentricity):
+The major and minor axis of the minimum bounding polygon of the depression polygon. The eccentricity is calculated from these two values. These three attributes are used to determine the general shape of the depression.
+
+THIN_RAT (Thinness Ratio):
+Thinness ratio is used to define the regularity of the depression polygon. A circle will have a value of 1, whereas the more irregular the shape the lower the value.
+
+DIDP_RAT (Diameter/Depth Ratio):
+The ratio between the diameter and depth of the depression polygon.
+
+POCK_DEP (Depression Depth):
+Depth of the depression polygon at its deepest point.
+
+AZIMUTH (Azimuth):
+Calculated from the direction of the minimum bounding area polygon; is the direction of the depression polygon. Can be used with tidal data.
+
+MORP_CHAR (Morphological Characteristics):
+These are based on *my* findings and should not necessarily be used by every user. The parameters for defining a *Potential Geo-feature caused by fluid escape* are depression polygons with a thinness ratio greater than 0.75 and a diamater-depth ratio less than 100. A polygon with a thinness ratio greater than 0.75 shows the depression has regular shape (circular/elongate), consisntent with literature.  The diameter-depth ratio means a steeper incline from sea floor surface to depression depth indicating it's potentially an anomoly in the sea floor opposed to the general ebb and flow of the sea floor.
+
+James M Roden
+gisjmr@gmail.com
