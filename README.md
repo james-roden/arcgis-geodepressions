@@ -2,6 +2,8 @@
 
 Version==ArcGIS 10.3
 
+**Currently investigating issues with ESRI error 99999 in 10.5+**
+
 *Created by James M Roden*
 
 An ArcGIS toolbox to semi-automatically identify and analyse geo-depressions in a bathymetric grid. These tools can be used to aid the discovery of pockmarks on the sea bed, and ultimately the location of working hydrocarbon systems.
