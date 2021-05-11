@@ -1,4 +1,4 @@
-# ArcGIS-GeoDepressions-Tool
+# arcgis-geodepressions
 
 Version==ArcGIS 10.3
 
